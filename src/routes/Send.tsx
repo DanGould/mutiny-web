@@ -602,16 +602,6 @@ export function Send() {
                     sentDetails.destination = address();
                     sentDetails.txid = txid;
                     sentDetails.fee_estimate = feeEstimate() ?? 0;
-                } else if (payjoinEnabled()) {
-                    const txid = await state.mutiny_wallet?.send_payjoin(
-                        originalScan()!,
-                        amountSats(),
-                        tags
-                    );
-                    sentDetails.amount = amountSats();
-                    sentDetails.destination = address();
-                    sentDetails.txid = txid;
-                    sentDetails.fee_estimate = feeEstimate() ?? 0;
                 } else {
                     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                     const txid = await state.mutiny_wallet?.send_to_address(
