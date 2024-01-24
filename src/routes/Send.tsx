@@ -794,9 +794,19 @@ export function Send() {
                         />
                     </Show>
                     <Show when={payjoinEnabled()}>
-                        <InfoBox accent="green">
-                            <p>{i18n.t("send.payjoin_send")}</p>
-                        </InfoBox>
+                        <div class="w-[20rem] self-center">
+                            <VStack>
+                                <div class="flex flex-col gap-1">
+                                    <div
+                                        class="flex items-center justify-between text-neutral-400"
+                                    >
+                                        <div class="font-semibold uppercase">{i18n.t("send.payjoin")}</div>
+                                        <div class="font-light text-align-right">{i18n.t("send.payjoin_description")}</div>
+                                    </div>
+                                </div>
+                                <hr class="border-white/20" />
+                            </VStack>
+                        </div>
                     </Show>
                     <Show when={!isAmtEditable()}>
                         <AmountEditable
